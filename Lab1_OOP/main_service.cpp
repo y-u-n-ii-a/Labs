@@ -39,9 +39,13 @@ void chooseOperation(Triangle& triangle, int operation) {
 }
 
 void changeAndPrintAngleAB(Triangle& triangle) {
-    cout << "Введите кол-во процентов (0-1): ";
+    cout << "Введите кол-во процентов ";
     float percent;
-    cin >> percent;
+
+    do {
+        cout<<"в пределах [0; 1]: ";
+        cin >> percent;
+    } while (percent < 0 || percent > 1);
 
     triangle.changeAngleAB(percent);
 
