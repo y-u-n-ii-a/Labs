@@ -26,7 +26,12 @@ private:
 public:
     Triangle();
     Triangle(double a, double b, double angleAB);
+    Triangle(const Triangle&);
     ~Triangle() = default;
+
+    void setA(double);
+    void setB(double);
+    void setAngleAB(double);
 
     double getAngleAB();
     double getAngleBC();

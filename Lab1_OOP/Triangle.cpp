@@ -5,6 +5,7 @@
 #include "Triangle.h"
 #include <cmath>
 
+// Constructors
 Triangle::Triangle() {
     a = 0;
     b = 0;
@@ -13,10 +14,17 @@ Triangle::Triangle() {
 
 Triangle::Triangle(double a, double b, double angleAB) {
     this->a = a;
-    this->b= b;
-    this->angleAB = angleAB;
+    this->b = b;
+    this->angleAB = fmod(angleAB, 360);
 }
 
+Triangle::Triangle(const Triangle& triangle) {
+    this->a = triangle.a;
+    this->b = triangle.b;
+    this->angleAB = triangle.angleAB;
+}
+
+// Getters and setters
 double Triangle::getA(){
     return a;
 }
@@ -27,6 +35,18 @@ double Triangle::getB() {
 
 double Triangle::getC() {
     return sqrt(a * a + b * b - 2 * a * b * cos(angleAB * M_PI / 180));
+}
+
+void Triangle:: setA(double a) {
+    this->a = a;
+}
+
+void Triangle:: setB(double b) {
+    this->b = b;
+}
+
+void Triangle:: setAngleAB(double angleAB) {
+    this->angleAB = fmod(angleAB, 360);
 }
 
 double Triangle::getAngleAB() {
